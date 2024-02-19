@@ -1,16 +1,4 @@
 'use strict'
-// 1行目に記載している 'use strict' は削除しないでください
-
-/**
- * 🦄 Project DOM Unicorn 🦄
- * 
- * 全3回に分けて、基礎コースで使ったindex.htmlをDOMでいろいろ改造し、
- * DOM をおさらいしながらユニコーン図鑑を作ってみましょう。
- * 
- * Day3
- *   作ったものを発表しましょう。
- * 
- */
 
 const unicorns = [
   {
@@ -37,31 +25,8 @@ const unicorns = [
     name: 'DreamBox',
     img: 'imgs/05_dreambox.jpg',
     desc: 'She is full of dreams.'
-  },
-  // {
-  //   name: 'CyberTiger',
-  //   img: 'imgs/06_cybertiger.jpg',
-  //   desc: 'Happy Hacking.'
-  // },
+  }
 ];
-
-// https://drive.google.com/file/d/1NZE_5tqRbILsJScIpe5TqSv5jQfhZ-Y9/view?usp=sharing
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function test(actual, expected) {
   if (JSON.stringify(actual) === JSON.stringify(expected)) {
@@ -90,8 +55,8 @@ function testHTMLs(actual, expected) {
     console.error("Test FAILED. Keep trying!");
     console.group();
     results.forEach(key => {
-      console.log('actual   :', key ,':', actual[key]);
-      console.log('expected :', key ,':', expected[key]);
+      console.log('actual   :', key, ':', actual[key]);
+      console.log('expected :', key, ':', expected[key]);
     });
     console.groupEnd();
     console.trace();
@@ -168,7 +133,13 @@ window.onload = () => {
   const header = document.createElement('header');
   header.style.display = 'flex';
 
-  header.appendChild(createImgElm('https://cdn.dribbble.com/users/1281272/screenshots/4515441/unicorn.gif', '200px'));
+  header.appendChild((() => {
+    const newImg = createImgElm('https://cdn.dribbble.com/users/1281272/screenshots/4515441/unicorn.gif', '200px');
+    newImg.addEventListener('click', () => {
+      unicorns.push(cyberTiger);
+    }, { once: true });
+    return newImg;
+  })());
 
   header.appendChild((() => {
     const div = createElm('div');
@@ -181,7 +152,23 @@ window.onload = () => {
     return div;
   })());
 
-  header.appendChild(createImgElm('https://cdn.dribbble.com/users/1281272/screenshots/4515441/unicorn.gif', '200px'));
+  header.appendChild((() => {
+    const newImg = createImgElm('https://cdn.dribbble.com/users/1281272/screenshots/4515441/unicorn.gif', '200px');
+    newImg.addEventListener('click', () => {
+      unicorns.push({
+        name: 'CyberTiger',
+        img: 'imgs/06_cybertiger.jpg',
+        desc: 'Happy Hacking.'
+      });
+      document.getElementsByTagName('div')[1].appendChild((() => {
+        const tiger = createImgElm(unicorns[5].img, '100px', '100px');
+        tiger.id = unicorns[5].name;
+        tiger.addEventListener('click', showUnicorn);
+        return tiger;
+      })());
+    }, { once: true });
+    return newImg;
+  })());
 
   document.body.appendChild(header);
   document.body.appendChild(document.createElement('hr'));
