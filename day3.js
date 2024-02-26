@@ -23,7 +23,7 @@ const unicorns = [
   },
   {
     name: 'Dreambox',
-    img: 'imgs/05_Dreambox.jpg',
+    img: 'imgs/05_dreambox.jpg',
     desc: 'She is full of dreams.'
   }
 ];
