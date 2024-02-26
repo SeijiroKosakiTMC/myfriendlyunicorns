@@ -22,7 +22,7 @@ const unicorns = [
     desc: 'Princess of Abirian kingdom.'
   },
   {
-    name: 'Dreambox',
+    name: 'DreamBox',
     img: 'imgs/05_dreambox.jpg',
     desc: 'She is full of dreams.'
   }
