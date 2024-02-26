@@ -128,8 +128,8 @@ const showUnicorn = event => {
 
 window.onload = () => {
   document.title = 'My Friendly Unicorns';
-
   document.body.style.textAlign = 'center';
+
   const header = document.createElement('header');
   header.style.display = 'flex';
 
