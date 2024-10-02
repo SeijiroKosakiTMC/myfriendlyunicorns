@@ -23,7 +23,7 @@ const createElm = (tag, html = '', src = '') => {
   elm.innerHTML = html;
   tag === 'img' ? elm.src = src : undefined;
   return elm;
-}
+};
 
 const expH1Elm = document.createElement('h1');
 expH1Elm.innerHTML = 'ab<font color="blue">cd</font>ef';
