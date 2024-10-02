@@ -7,8 +7,8 @@ const unicorns = [
     desc: 'Gentle and kind.'
   },
   {
-    name: 'StareingCourage',
-    img: 'imgs/02_stareingcourage.jpg',
+    name: 'StaringCourage',
+    img: 'imgs/02_staringcourage.jpg',
     desc: 'Young unicorn, brother of NobleBreeze.'
   },
   {
